@@ -3,6 +3,12 @@ import { NextPageWithLayout } from './page';
 import Sidebar from 'components/Sidebar';
 import JobDescription from 'components/JobDescription';
 import styles from '../styles/Home.module.css';
+import { Inter } from 'next/font/google';
+
+export const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -23,7 +29,7 @@ Home.getLayout = (page) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.container}>
+      <div className={`${styles.container} ${inter.className}`}>
         <Sidebar />
         {page}
       </div>

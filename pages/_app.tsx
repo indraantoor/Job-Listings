@@ -1,12 +1,6 @@
 import type { AppProps } from 'next/app';
-import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import { NextPageWithLayout } from './page';
-
-export const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;

@@ -1,3 +1,5 @@
 .jobDescriptionContainer {
-  background: green;
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
 }
