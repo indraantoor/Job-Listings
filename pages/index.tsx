@@ -13,7 +13,15 @@ export const inter = Inter({
 const Home: NextPageWithLayout = () => {
   return (
     <main>
-      <JobDescription />
+      <JobDescription
+        jobTitle="Frontend Developer"
+        companyName="Microsoft"
+        roleType="Full Time"
+        roleLevel="Mid Level"
+        description="hello"
+        location="Worlwide (Remote)"
+        hasApplied={false}
+      />
     </main>
   );
 };

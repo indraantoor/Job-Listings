@@ -10,6 +10,78 @@ const Sidebar = () => {
         companyName="Microsoft"
         location="Worldwide (Remote)"
       />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
+      <JobListing
+        isSelected={false}
+        jobTitle="Fullstack Developer"
+        companyName="Microsoft"
+        location="Worldwide (Remote)"
+      />
     </aside>
   );
 };
