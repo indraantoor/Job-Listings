@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { NextPageWithLayout } from './page';
-import Sidebar from 'components/Sidebar';
-import JobDescription from 'components/JobDescription';
 import styles from '../styles/Home.module.css';
 import { Inter } from 'next/font/google';
+import JobDescription from '@/components/JobDescription';
+import Sidebar from '@/components/Sidebar';
 
 export const inter = Inter({
   subsets: ['latin'],
