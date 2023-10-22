@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import { Inter } from 'next/font/google';
 import JobDescription from '@/components/JobDescription';
 import Sidebar from '@/components/Sidebar';
+import { FindJobContextProvider } from '@/state/context/findJobContext';
 
 export const inter = Inter({
   subsets: ['latin'],
@@ -13,14 +14,7 @@ export const inter = Inter({
 const Home: NextPageWithLayout = () => {
   return (
     <main>
-      <JobDescription
-        jobTitle="Frontend Developer"
-        companyName="Microsoft"
-        roleType="Full Time"
-        roleLevel="Mid Level"
-        location="Worlwide (Remote)"
-        hasApplied={false}
-      />
+      <JobDescription />
     </main>
   );
 };
@@ -36,10 +30,12 @@ Home.getLayout = (page) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={`${styles.container} ${inter.className}`}>
-        <Sidebar />
-        {page}
-      </div>
+      <FindJobContextProvider>
+        <div className={`${styles.container} ${inter.className}`}>
+          <Sidebar />
+          {page}
+        </div>
+      </FindJobContextProvider>
     </div>
   );
 };

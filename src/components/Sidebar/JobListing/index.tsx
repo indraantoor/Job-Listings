@@ -1,18 +1,25 @@
+import {
+  IFindJobContext,
+  useFindJobContext,
+} from '@/state/context/findJobContext';
 import styles from './styles/jobListing.styles.module.css';
 
 interface IJobListingProps {
-  isSelected: boolean;
-  jobTitle: string;
-  companyName: string;
-  location: string;
+  job: any;
 }
 
-const JobListing = ({
-  isSelected = false,
-  jobTitle = '',
-  companyName = '',
-  location = '',
-}: IJobListingProps) => {
+const JobListing = ({ job }: IJobListingProps) => {
+  const findJobContext = useFindJobContext() as IFindJobContext;
+  const { setSelectedJobId, setSelectedJobSummary } = findJobContext;
+  const { selectedJobId } = findJobContext.state;
+
+  function handleSelectJob(id: string, job: any) {
+    setSelectedJobId(id);
+    setSelectedJobSummary(job);
+  }
+
+  const isSelected = job._id == selectedJobId ? true : false;
+
   return (
     <div>
       <button
@@ -20,14 +27,15 @@ const JobListing = ({
         style={{
           background: isSelected ? '#a8dadc' : 'white',
         }}
+        onClick={() => handleSelectJob(job._id, job)}
       >
         <div>Logo | </div>
         <div className={styles.infoContainer}>
-          <h2 className={styles.jobTitle}>{jobTitle}</h2>
+          <h2 className={styles.jobTitle}>{job?.jobTitle}</h2>
           <div className={styles.companyName}>
-            <span>{companyName}</span>
+            <span>{job?.companyName}</span>
           </div>
-          <div className={styles.location}>{location}</div>
+          <div className={styles.location}>{job?.location}</div>
         </div>
       </button>
     </div>

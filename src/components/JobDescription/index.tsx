@@ -2,25 +2,21 @@ import styles from './styles/jobDescription.styles.module.css';
 import Loading from '../Loading';
 import Error from '../Error';
 import useJobDescription from '@/common/hooks/api/useJobDescription';
+import {
+  IFindJobContext,
+  useFindJobContext,
+} from '@/state/context/findJobContext';
+import parse from 'html-react-parser';
 
-interface IJobDescriptionProps {
-  jobTitle: string;
-  companyName: string;
-  roleType: string;
-  roleLevel: string;
-  location: string;
-  hasApplied: boolean;
-}
+const JobDescription = () => {
+  const findJobContext = useFindJobContext() as IFindJobContext;
+  const { selectedJobId, selectedJobSummary } = findJobContext.state;
 
-const JobDescription = ({
-  jobTitle = '',
-  companyName = '',
-  roleType = '',
-  roleLevel = '',
-  location = '',
-  hasApplied = false,
-}: IJobDescriptionProps) => {
-  const { data: description, isLoading, isError } = useJobDescription(56);
+  const {
+    data: jobDetails,
+    isLoading,
+    isError,
+  } = useJobDescription(selectedJobId);
 
   if (isLoading) {
     return <Loading />;
@@ -30,31 +26,40 @@ const JobDescription = ({
     return <Error />;
   }
 
+  const hasAppliedToJob = jobDetails?.hasAppliedToJob ?? false;
+  const description = jobDetails?.job?.description;
+
   return (
     <div className={styles.jobDescriptionContainer}>
-      <div>
-        <h2>{jobTitle}</h2>
-        <div className={styles.companyDetails}>
-          <span>Logo | </span>
-          <span>{companyName} </span>
-        </div>
-        <div className={styles.roleType}>
-          <span>{roleType} : </span>
-          <span>{roleLevel}</span>
-        </div>
-        <div className={styles.location}>
-          <span>{location}</span>
-        </div>
-        <div className={styles.applyBtn}>
-          <button disabled={hasApplied}>
-            {hasApplied ? 'Applied' : 'Apply'}
-          </button>
-        </div>
-      </div>
-      <div className={styles.description}>
-        <h3>Job Description</h3>
-        <p>{description}</p>
-      </div>
+      {!selectedJobId ? (
+        <h2>Select a job listing to view details</h2>
+      ) : (
+        <>
+          <div>
+            <h2>{selectedJobSummary?.jobTitle}</h2>
+            <div className={styles.companyDetails}>
+              <span>Logo | </span>
+              <span>{selectedJobSummary?.companyName} </span>
+            </div>
+            <div className={styles.roleType}>
+              <span>{selectedJobSummary?.roleType} : </span>
+              <span>{selectedJobSummary?.roleLevel}</span>
+            </div>
+            <div className={styles.location}>
+              <span>{selectedJobSummary?.location}</span>
+            </div>
+            <div className={styles.applyBtn}>
+              <button disabled={hasAppliedToJob}>
+                {hasAppliedToJob ? 'Applied' : 'Apply'}
+              </button>
+            </div>
+          </div>
+          <div className={styles.description}>
+            <h3>Job Description</h3>
+            <p>{description ? parse(description) : null}</p>
+          </div>
+        </>
+      )}
     </div>
   );
 };

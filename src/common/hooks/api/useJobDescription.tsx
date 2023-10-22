@@ -3,9 +3,10 @@ import { useQuery } from 'react-query';
 
 const useJobDescription = (id: number | string) => {
   return useQuery({
-    queryKey: ['job-by-id'],
+    enabled: id ? true : false,
+    queryKey: ['job-by-id', id],
     queryFn: () => fetchJobDescriptionById(id),
-    select: (response) => response.data.job.description,
+    select: (response) => response.data,
   });
 };
 

@@ -19,15 +19,7 @@ const Sidebar = () => {
 
   return (
     <aside className={styles.sidebarContainer}>
-      {jobs?.map((job: any) => (
-        <JobListing
-          isSelected={false}
-          jobTitle={job.jobTitle}
-          companyName={job.companyName}
-          location={job.location}
-          key={job.id}
-        />
-      ))}
+      {jobs?.map((job: any) => <JobListing job={job} key={job._id} />)}
     </aside>
   );
 };
