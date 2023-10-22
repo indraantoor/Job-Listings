@@ -5,7 +5,7 @@ const useJobs = () => {
   return useQuery({
     queryKey: ['all-jobs'],
     queryFn: fetchAllJobs,
-    select: (response) => response.data.jobs,
+    select: (response) => response.data,
   });
 };
 
