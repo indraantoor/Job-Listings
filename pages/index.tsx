@@ -18,7 +18,6 @@ const Home: NextPageWithLayout = () => {
         companyName="Microsoft"
         roleType="Full Time"
         roleLevel="Mid Level"
-        description="hello"
         location="Worlwide (Remote)"
         hasApplied={false}
       />
