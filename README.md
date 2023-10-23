@@ -36,7 +36,7 @@ Before you start, ensure you have the following software installed:
 1. **Clone the Repository**: Clone this repository to your local machine.
 
    ```bash
-   git clone https://github.com/indraantoor/Ecommerce-Assignment
+   git clone https://github.com/indraantoor/Job-Listings
    ```
 
 2. **Navigate to Project Directory**: Go to the project directory using your terminal.
