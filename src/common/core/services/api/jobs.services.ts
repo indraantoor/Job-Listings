@@ -8,3 +8,9 @@ export const fetchAllJobs = () => {
 export const fetchJobDescriptionById = (jobId: number | string) => {
   return axios.get(ApiConstants.JOBS + '/' + jobId);
 };
+
+export const applyToJobById = (jobId: number | string) => {
+  return axios.post(ApiConstants.APPLY_JOB, {
+    jobId,
+  });
+};

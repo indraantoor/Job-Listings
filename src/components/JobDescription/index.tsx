@@ -7,10 +7,25 @@ import {
   useFindJobContext,
 } from '@/state/context/findJobContext';
 import parse from 'html-react-parser';
+import { useMutation, useQueryClient } from 'react-query';
+import { applyToJobById } from '@/common/core/services/api/jobs.services';
 
 const JobDescription = () => {
   const findJobContext = useFindJobContext() as IFindJobContext;
   const { selectedJobId, selectedJobSummary } = findJobContext.state;
+
+  const queryClient = useQueryClient();
+
+  const { mutate: applyToJob, isLoading: isApplyingToJobLoading } = useMutation(
+    {
+      mutationFn: (jobId: string | number) => {
+        return applyToJobById(jobId);
+      },
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ['job-by-id'] });
+      },
+    }
+  );
 
   const {
     data: jobDetails,
@@ -49,14 +64,22 @@ const JobDescription = () => {
               <span>{selectedJobSummary?.location}</span>
             </div>
             <div className={styles.applyBtn}>
-              <button disabled={hasAppliedToJob}>
-                {hasAppliedToJob ? 'Applied' : 'Apply'}
+              <button
+                disabled={hasAppliedToJob || isApplyingToJobLoading}
+                onClick={() => applyToJob(selectedJobId)}
+              >
+                {_generateApplyBtnStatus(
+                  hasAppliedToJob,
+                  isApplyingToJobLoading
+                )}
               </button>
             </div>
           </div>
-          <div className={styles.description}>
+          <div className={styles.descriptionContainer}>
             <h3>Job Description</h3>
-            <p>{description ? parse(description) : null}</p>
+            <div className={styles.description}>
+              {description ? parse(description) : null}
+            </div>
           </div>
         </>
       )}
@@ -65,3 +88,20 @@ const JobDescription = () => {
 };
 
 export default JobDescription;
+
+function _generateApplyBtnStatus(
+  hasAppliedToJob: boolean,
+  isApplyingToJobLoading: boolean
+) {
+  if (isApplyingToJobLoading) {
+    return 'Please wait...';
+  }
+
+  if (hasAppliedToJob) {
+    return 'Applied';
+  }
+
+  if (!hasAppliedToJob) {
+    return 'Apply';
+  }
+}

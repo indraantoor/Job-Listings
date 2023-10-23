@@ -3,8 +3,12 @@ import JobSchema from '../models/Job.js';
 import UserApplication from '../models/UserApplication.js';
 import JobDescription from '../models/JobDescription.js';
 import mongoose from 'mongoose';
+import { MockConfig } from '../mock/mocks.config.js';
 
 const router = Router();
+
+// a randomly generated user id to simulate a real user
+const userId = MockConfig.user;
 
 // Route to get all job listings
 router.get('/', async (req, res) => {
@@ -21,11 +25,11 @@ router.get('/:jobId', async (req, res) => {
   const { jobId } = req.params;
 
   try {
-    const userId = new mongoose.Types.ObjectId(2);
     const jobObjectId = new mongoose.Types.ObjectId(jobId);
+    const userObjectId = new mongoose.Types.ObjectId(userId);
 
     const application = await UserApplication.findOne({
-      userId,
+      userId: userObjectId,
       jobId: jobObjectId,
     });
 

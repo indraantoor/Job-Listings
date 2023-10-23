@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import jobsRoute from './routes/jobs.js';
+import applyJobRoute from './routes/applyJob.js';
 import mongoose from 'mongoose';
 import { config } from 'dotenv';
 
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 app.use('/api/jobs', jobsRoute);
+app.use('/api/jobs/apply', applyJobRoute);
 
 const PORT = process.env.PORT || 5000;
 

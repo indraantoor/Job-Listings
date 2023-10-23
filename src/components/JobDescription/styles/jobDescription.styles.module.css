@@ -48,12 +48,12 @@
   font-weight: 600;
 }
 
-.description h3 {
+.descriptionContainer h3 {
   margin-bottom: 16px;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.description p {
+.description {
   line-height: 1.5;
 }
