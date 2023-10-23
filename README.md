@@ -1,6 +1,7 @@
 # Getting Started with the Project
 ![Screenshot from 2023-10-23 20-00-06](https://github.com/indraantoor/Job-Listings/assets/64259328/d0fc47ed-3870-44ce-bb00-ae766ad1fd78)
 ![Screenshot from 2023-10-23 20-00-29](https://github.com/indraantoor/Job-Listings/assets/64259328/0d952fa3-1a65-4fd5-9866-266d9f3cb991)
+![Screenshot from 2023-10-23 22-56-33](https://github.com/indraantoor/Job-Listings/assets/64259328/7008b420-448b-45d4-82d7-23db02896ec7)
 
 This README provides a guide on how to set up, build, run tests and run the project. Follow these steps to ensure a successful setup.
 
