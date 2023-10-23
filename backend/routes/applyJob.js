@@ -33,7 +33,14 @@ const userId = MockConfig.user;
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/UserApplication'
+ *               type: object
+ *               properties:
+ *                 userId:
+ *                   type: string
+ *                   description: MongoDB object id of the user.
+ *                 jobId:
+ *                   type: string
+ *                   description: MongoDB object id of the job user applied to.
  *       400:
  *         description: Bad request. Because of invalid job id.
  *       409:
