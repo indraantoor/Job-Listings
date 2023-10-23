@@ -17,13 +17,19 @@ const Sidebar = () => {
     return <Error />;
   }
 
-  console.log('MY JOBS', { jobs });
-
   return (
-    <aside className={styles.sidebarContainer}>
-      {jobs?.map((job: any) => <JobListing job={job} key={job._id} />)}
+    <aside className={styles.sidebarContainer} data-testid="sidebar">
+      {_generateJobs(jobs)}
     </aside>
   );
 };
+
+function _generateJobs(jobs = []) {
+  let allJobs: any = [];
+  if (jobs) {
+    allJobs = jobs?.map((job: any) => <JobListing job={job} key={job._id} />);
+  }
+  return allJobs;
+}
 
 export default Sidebar;

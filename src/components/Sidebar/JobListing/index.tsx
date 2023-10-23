@@ -22,7 +22,7 @@ const JobListing = ({ job }: IJobListingProps) => {
   const isSelected = job._id == selectedJobId ? true : false;
 
   return (
-    <div>
+    <div data-testid="joblisting">
       <button
         className={styles.jobListingBtn}
         style={{

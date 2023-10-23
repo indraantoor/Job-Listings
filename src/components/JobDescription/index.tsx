@@ -35,7 +35,10 @@ const JobDescription = () => {
   const description = jobDetails?.job?.description;
 
   return (
-    <div className={styles.jobDescriptionContainer}>
+    <div
+      className={styles.jobDescriptionContainer}
+      data-testid="jobdescription"
+    >
       {!selectedJobId ? (
         <h2>Select a job listing to view details</h2>
       ) : (
