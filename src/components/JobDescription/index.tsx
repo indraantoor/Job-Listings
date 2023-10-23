@@ -8,6 +8,7 @@ import {
 } from '@/state/context/findJobContext';
 import parse from 'html-react-parser';
 import useApplyJob from '@/common/hooks/api/useApplyJob';
+import Image from 'next/image';
 
 const JobDescription = () => {
   const findJobContext = useFindJobContext() as IFindJobContext;
@@ -42,7 +43,13 @@ const JobDescription = () => {
           <div>
             <h2>{selectedJobSummary?.jobTitle}</h2>
             <div className={styles.companyDetails}>
-              <span>Logo | </span>
+              <div className={styles.companyLogo}>
+                <Image
+                  src={selectedJobSummary?.companyLogo}
+                  alt="company-logo"
+                  layout="fill"
+                />
+              </div>
               <span>{selectedJobSummary?.companyName} </span>
             </div>
             <div className={styles.roleType}>

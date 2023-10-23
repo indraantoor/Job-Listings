@@ -17,6 +17,8 @@ const Sidebar = () => {
     return <Error />;
   }
 
+  console.log('MY JOBS', { jobs });
+
   return (
     <aside className={styles.sidebarContainer}>
       {jobs?.map((job: any) => <JobListing job={job} key={job._id} />)}

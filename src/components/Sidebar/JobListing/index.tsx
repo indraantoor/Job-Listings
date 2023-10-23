@@ -3,6 +3,7 @@ import {
   useFindJobContext,
 } from '@/state/context/findJobContext';
 import styles from './styles/jobListing.styles.module.css';
+import Image from 'next/image';
 
 interface IJobListingProps {
   job: any;
@@ -29,7 +30,9 @@ const JobListing = ({ job }: IJobListingProps) => {
         }}
         onClick={() => handleSelectJob(job._id, job)}
       >
-        <div>Logo | </div>
+        <div className={styles.companyLogo}>
+          <Image src={job?.companyLogo} alt="company-logo" layout="fill" />
+        </div>
         <div className={styles.infoContainer}>
           <h2 className={styles.jobTitle}>{job?.jobTitle}</h2>
           <div className={styles.companyName}>
