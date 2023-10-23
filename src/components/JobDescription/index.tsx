@@ -7,25 +7,14 @@ import {
   useFindJobContext,
 } from '@/state/context/findJobContext';
 import parse from 'html-react-parser';
-import { useMutation, useQueryClient } from 'react-query';
-import { applyToJobById } from '@/common/core/services/api/jobs.services';
+import useApplyJob from '@/common/hooks/api/useApplyJob';
 
 const JobDescription = () => {
   const findJobContext = useFindJobContext() as IFindJobContext;
   const { selectedJobId, selectedJobSummary } = findJobContext.state;
 
-  const queryClient = useQueryClient();
-
-  const { mutate: applyToJob, isLoading: isApplyingToJobLoading } = useMutation(
-    {
-      mutationFn: (jobId: string | number) => {
-        return applyToJobById(jobId);
-      },
-      onSuccess: () => {
-        queryClient.invalidateQueries({ queryKey: ['job-by-id'] });
-      },
-    }
-  );
+  const { mutate: applyToJob, isLoading: isApplyingToJobLoading } =
+    useApplyJob();
 
   const {
     data: jobDetails,
