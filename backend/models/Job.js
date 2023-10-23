@@ -5,6 +5,7 @@ const JobSchema = new mongoose.Schema(
     jobTitle: { type: String, required: true },
     location: { type: String, required: true },
     companyName: { type: String, required: true },
+    companyLogo: { type: String, required: true },
     roleType: { type: String, required: true },
     roleLevel: { type: String, required: true },
   },
