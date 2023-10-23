@@ -65,6 +65,11 @@ Before you start, ensure you have the following software installed:
    ```
 
 ## Setting up predefined data in MongoDB
+In the backend folder make sure to create a ".env" file add add the MongoDB URI over there with property name as below.
+
+```bash
+MONGODB_URI=YOUR_MONGODB_URI
+```
 
 1. **Installing MongoDB Compass**: install MongoDb if you have not installed it
 
