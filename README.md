@@ -1,4 +1,6 @@
 # Getting Started with the Project
+![Screenshot from 2023-10-23 20-00-06](https://github.com/indraantoor/Job-Listings/assets/64259328/d0fc47ed-3870-44ce-bb00-ae766ad1fd78)
+![Screenshot from 2023-10-23 20-00-29](https://github.com/indraantoor/Job-Listings/assets/64259328/0d952fa3-1a65-4fd5-9866-266d9f3cb991)
 
 This README provides a guide on how to set up, build, run tests and run the project. Follow these steps to ensure a successful setup.
 
@@ -145,7 +147,9 @@ Access your project at `http://localhost:3000` in your browser.
 
 ## Testing
 
-For backend tests are written using "Jest" and for frontend tests are written using "Cypress".
+![Screenshot from 2023-10-23 20-07-27](https://github.com/indraantoor/Job-Listings/assets/64259328/5906d8f4-254d-49dc-9854-6c951f6a4794)
+
+The tests are written using "Cypress".
 
 ### Running Tests
 
@@ -176,6 +180,12 @@ http://localhost:5000/api/docs
 ```
 
 If running the backend on a different port then use that port in the url.
+![Screenshot from 2023-10-23 20-01-24](https://github.com/indraantoor/Job-Listings/assets/64259328/e00abc42-5477-4d5c-af09-c2a44d3f0690)
+![Screenshot from 2023-10-23 20-01-43](https://github.com/indraantoor/Job-Listings/assets/64259328/9c8903ed-c6d3-453e-a7a0-ef2498d5e068)
+![Screenshot from 2023-10-23 20-02-03](https://github.com/indraantoor/Job-Listings/assets/64259328/6a447acf-87e9-48fa-a056-7e3ff7951140)
+![Screenshot from 2023-10-23 20-02-15](https://github.com/indraantoor/Job-Listings/assets/64259328/047f1daf-53e1-453e-ba00-e53cb66bcbda)
+![Screenshot from 2023-10-23 20-02-42](https://github.com/indraantoor/Job-Listings/assets/64259328/e05571a1-7beb-4923-97cf-329ca3f4a4b0)
+![Screenshot from 2023-10-23 20-02-51](https://github.com/indraantoor/Job-Listings/assets/64259328/8b7438da-041a-4646-9aa3-803762b8e102)
 
 ## Github Actions And Workflow / CI
 
